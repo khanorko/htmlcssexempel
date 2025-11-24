@@ -176,6 +176,76 @@
             </ul>
         </div>
 
+        <div class="lesson-section">
+            <h2>6. Formulärhantering: Statisk vs Dynamisk</h2>
+            <p>På kontaktsidan har vi ett formulär. Men hur får man det att faktiskt skicka mail?</p>
+            
+            <h3>Statiska vs Dynamiska webbplatser</h3>
+            <ul>
+                <li><strong>Statisk webbplats:</strong> HTML/CSS/JS-filer som serveras direkt (t.ex. GitHub Pages). Ingen server som kör kod.</li>
+                <li><strong>Dynamisk webbplats:</strong> Kräver en server som kan köra kod (t.ex. PHP, Node.js, Python) för att hantera formulär, databaser, etc.</li>
+            </ul>
+
+            <h3>Varför fungerar inte PHP på GitHub Pages?</h3>
+            <p>GitHub Pages är designat för <strong>statiska</strong> webbplatser. Det betyder att det bara serverar HTML, CSS och JavaScript-filer. PHP kräver en server som kan köra PHP-kod, vilket GitHub Pages inte gör.</p>
+
+            <h3>Lösningar för formulär på statiska webbplatser</h3>
+            
+            <details>
+                <summary>Alternativ 1: mailto: (Nuvarande lösning)</summary>
+                <p>Vi använder <code>action="mailto:info@mittforetag.se"</code> vilket öppnar användarens e-postprogram. Det fungerar, men är begränsat och inte så professionellt.</p>
+                <pre><code>&lt;form action="mailto:info@mittforetag.se" method="post" enctype="text/plain"&gt;
+    &lt;!-- Formulärfält här --&gt;
+&lt;/form&gt;</code></pre>
+            </details>
+
+            <details open>
+                <summary>Alternativ 2: Tredjepartstjänst (Formspree)</summary>
+                <p>För att få ett riktigt fungerande formulär utan backend kan du använda en tjänst som <strong>Formspree</strong>. Det är gratis för upp till 50 inlämningar per månad.</p>
+                
+                <h4>Så här gör du:</h4>
+                <ol>
+                    <li>Gå till <a href="https://formspree.io" target="_blank">formspree.io</a> och skapa ett konto.</li>
+                    <li>Skapa ett nytt formulär och kopiera din unika URL (t.ex. <code>https://formspree.io/f/abc123xyz</code>).</li>
+                    <li>Ändra formuläret så att <code>action</code> pekar på denna URL.</li>
+                </ol>
+
+                <h4>Exempel på kod:</h4>
+                <pre><code>&lt;!-- FÖRE: mailto-lösning --&gt;
+&lt;form action="mailto:info@mittforetag.se" method="post" enctype="text/plain"&gt;
+
+&lt;!-- EFTER: Formspree-lösning --&gt;
+&lt;form action="https://formspree.io/f/ditt-unika-id" method="POST"&gt;
+    &lt;input type="text" name="namn" required&gt;
+    &lt;input type="email" name="email" required&gt;
+    &lt;textarea name="meddelande"&gt;&lt;/textarea&gt;
+    &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <p><strong>Fördelar:</strong> Mailet skickas direkt från sidan utan att öppna e-postprogram. Fungerar perfekt på GitHub Pages!</p>
+            </details>
+
+            <details>
+                <summary>Alternativ 3: Backend med PHP (kräver egen server)</summary>
+                <p>Om du har en server som stödjer PHP (t.ex. delad hosting), kan du skapa en fil <code>skicka.php</code>:</p>
+                <pre><code>&lt;?php
+if ($_POST) {
+    $namn = $_POST['namn'];
+    $email = $_POST['email'];
+    $meddelande = $_POST['meddelande'];
+    
+    $till = "info@mittforetag.se";
+    $amne = "Nytt meddelande från webbplatsen";
+    $innehall = "Från: $namn ($email)\n\n$meddelande";
+    
+    mail($till, $amne, $innehall);
+    echo "Tack! Ditt meddelande har skickats.";
+}
+?&gt;</code></pre>
+                <p>Formuläret skulle då peka på: <code>action="skicka.php"</code></p>
+                <p><strong>Nackdel:</strong> Fungerar inte på GitHub Pages eftersom det kräver en PHP-server.</p>
+            </details>
+        </div>
+
     </main>
 
     <footer>

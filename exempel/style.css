@@ -1,0 +1,161 @@
+/* Globala inställningar */
+body {
+    font-family: system-ui, -apple-system, sans-serif; /* Modernare system-font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #f2f2f2; /* Ljusgrå bakgrund (Impact Loop stil) */
+    color: #101828; /* Mörkgrå text istället för kolsvart */
+    -webkit-font-smoothing: antialiased; /* Gör texten skarpare */
+}
+
+/* Header och Navigation */
+header {
+    background-color: #ffffff; /* Vit header */
+    color: #000000;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e0e0e0 1px solid; /* Tunn grå linje istället för tjock orange */
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.header-logo {
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrera loggan */
+}
+
+nav {
+    text-align: center;
+    background-color: #ffffff; /* Vit meny istället för mörk */
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0; /* Extra linje för struktur */
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    color: #000000; /* Svarta länkar */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #5be87a; /* Impact-grön vid hover */
+    background-color: #f9f9f9; /* Liten effekt vid hover */
+}
+
+/* Aktiv länk - visar vilken sida vi är på */
+nav a.active {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-color: #e5ff00; /* Neon-gul understrykning! */
+    text-decoration-thickness: 3px;
+}
+
+/* Huvudinnehåll */
+main {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #ffffff;
+    min-height: 400px;
+}
+
+/* Bilder - Responsiv hantering */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 4px; /* Lite skarpare hörn */
+}
+
+/* Specifikt för galleri eller hero-bilder */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery div {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px; /* Fast höjd för enhetlighet */
+    object-fit: cover; /* Beskär bilden snyggt */
+    margin-bottom: 0; /* Ta bort margin från global img-regel */
+    border-radius: 5px 5px 0 0; /* Bara runda hörn upptill */
+}
+
+.gallery p {
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.logo {
+    width: 150px;
+    margin: 0 auto 20px;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #000000; /* Helt svart footer */
+    text-align: center;
+}
+
+/* Media Queries - Mobilanpassning */
+@media (max-width: 768px) {
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+    
+    .hero-image {
+        height: 250px;
+    }
+}

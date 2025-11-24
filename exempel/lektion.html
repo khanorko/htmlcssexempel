@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lektion - Mitt Företag</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra stilar för kodeditor-look i lektionsanteckningarna */
+            .box {
+            background-color: lightcoral;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        @media (min-width: 700px) {
+            .box {
+                background-color: mediumseagreen;
+            }
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #d63384; /* Rosaaktig färg för inline kod */
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .lesson-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="HTMLCSS-EXEMPEL Logotyp" class="header-logo">
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="lektion.html" class="active">Lektion</a></li>
+            <li><a href="om.html">Om oss</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Lektionsmaterial: Bygga en sammanhängande webbplats</h1>
+        <p class="intro">Här går vi igenom hur man bygger en liten webbplats med tre sidor som delar header, footer och CSS. Fokus ligger på struktur, navigation, <code>aria-current</code> och responsiv layout.</p>
+
+        <div class="lesson-section">
+            <h2>1. Vad gör en webbplats sammanhängande?</h2>
+            <ul>
+                <li><strong>Gemensam struktur:</strong> Samma Header, Footer och Navigation på alla sidor skapar igenkänning.</li>
+                <li><strong>Konsekvent design (CSS):</strong> En enda stilmall (<code>style.css</code>) styr utseendet för hela sajten.</li>
+                <li><strong>Semantisk HTML:</strong> Vi använder rätt taggar för rätt sak:
+                    <ul>
+                        <li><code>&lt;header&gt;</code> för sidhuvudet.</li>
+                        <li><code>&lt;nav&gt;</code> för navigationsmenyn.</li>
+                        <li><code>&lt;main&gt;</code> för det unika innehållet på varje sida.</li>
+                        <li><code>&lt;footer&gt;</code> för sidfoten.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="lesson-section">
+            <h2>2. Koppla ihop sidor (Live-kodning)</h2>
+            <p>Så här arbetar vi praktiskt för att skapa flersidiga webbplatser:</p>
+            <ol>
+                <li><strong>Skapa en <code>index.html</code>:</strong> Bygg grundstrukturen först så att den är perfekt.</li>
+                <li><strong>Kopiera strukturen:</strong> Spara som <code>om.html</code> och <code>kontakt.html</code>. Då får du med header och footer "gratis".</li>
+                <li><strong>Länka sidorna:</strong> Använd relativa sökvägar i menyn.</li>
+            </ol>
+
+            <h3>Exempel på meny (HTML):</h3>
+            <pre><code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html" class="active"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="om.html"&gt;Om oss&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+            <p><strong>Aktiv länk:</strong> Observera klassen <code>class="active"</code> (eller attributet <code>aria-current="page"</code> för bättre tillgänglighet) som flyttas beroende på vilken sida man är på.</p>
+        </div>
+
+        <div class="lesson-section">
+            <h2>4. Exempel: Vad betyder <code>@media queries</code>?</h2>
+            <p><code>@media</code> låter oss ändra stilen beroende på skärmens bredd. Det gör att sidan kan anpassas till mobil, surfplatta och dator.</p>
+        
+            <h3>Exempel:</h3>
+            <pre><code>/* Grundstil: liten skärm */
+        .box {
+            background-color: lightcoral;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* När fönstret är minst 700px brett */
+        @media (min-width: 700px) {
+            .box {
+                background-color: mediumseagreen;
+            }
+        }</code></pre>
+        
+            <p>Testa att ändra fönstrets storlek – rutan nedan byter färg tack vare <code>@media</code>:</p>
+            <div class="box">Jag ändrar färg när fönstret blir bredare!</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Mitt Företag. Alla rättigheter reserverade.</p>
+    </footer>
+</body>
+</html>
+

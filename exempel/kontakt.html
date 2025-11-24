@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Mitt Företag</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="HTMLCSS-EXEMPEL Logotyp" class="header-logo">
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="lektion.html">Lektion</a></li>
+            <li><a href="om.html">Om oss</a></li>
+            <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Kontakta oss</h2>
+        <p>Har du frågor eller vill du starta ett projekt? Hör av dig till oss!</p>
+
+        <!-- Stämningsbild -->
+        <img src="images/5.jpg" alt="Person pratar i telefon" class="hero-image" style="height: 300px;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div>
+                <h3>Kontaktuppgifter</h3>
+                <p><strong>Telefon:</strong> 08-123 45 67</p>
+                <p><strong>E-post:</strong> info@mittforetag.se</p>
+                <p><strong>Adress:</strong><br>
+                Storgatan 1<br>
+                123 45 Stockholm</p>
+            </div>
+            <div>
+                <h3>Hitta hit</h3>
+                <!-- Använder 6.jpg som "karta" -->
+                <img src="images/6.jpg" alt="Karta över området" style="width: 100%; height: auto; border: 1px solid #ccc;">
+            </div>
+        </div>
+
+        <h3>Skicka ett meddelande</h3>
+        <form action="mailto:info@mittforetag.se" method="post" enctype="text/plain" style="background: #f9f9f9; padding: 20px; border-radius: 5px;">
+            <div style="margin-bottom: 15px;">
+                <label for="namn" style="display: block; margin-bottom: 5px;">Namn:</label>
+                <input type="text" id="namn" name="namn" style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="email" style="display: block; margin-bottom: 5px;">E-post:</label>
+                <input type="email" id="email" name="email" style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="meddelande" style="display: block; margin-bottom: 5px;">Meddelande:</label>
+                <textarea id="meddelande" name="meddelande" rows="4" style="width: 100%; padding: 8px;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #e8491d; color: white; border: none; padding: 10px 20px; cursor: pointer;">Skicka</button>
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Mitt Företag. Alla rättigheter reserverade.</p>
+    </footer>
+</body>
+</html>
+
+

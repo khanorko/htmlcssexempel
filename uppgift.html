@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppgift - Mitt Företag</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Samma stil som lektion.html för kodblock */
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .task-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Detaljer för att dölja långa kodblock */
+        details {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+        details[open] summary {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="HTMLCSS-EXEMPEL Logotyp" class="header-logo">
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="lektion.html">Lektion</a></li>
+            <li><a href="uppgift.html" class="active">Uppgift</a></li>
+            <li><a href="om.html">Om oss</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Uppgift: Bygg en sammanhängande webbplats</h1>
+        
+        <div class="task-section">
+            <p>Du ska bygga en liten webbplats med tre sidor som delar samma struktur och samma CSS. Du kan klona exemplet från GitHub eller skapa egna filer från grunden.</p>
+            
+            <h3>Mål:</h3>
+            <p>En fungerande webbplats med gemensam header, navigation, main och footer, en enda CSS som gäller överallt, aktiv länk markerad med <code>aria-current</code>, och minst en enkel <code>@media</code>-regel som visar responsivitet.</p>
+        </div>
+
+        <div class="task-section">
+            <h2>Alternativ 1: Utgå från exemplet</h2>
+            <p>Om du vill utgå från exemplet, skriv i terminalen:</p>
+            <pre><code>git clone https://github.com/khanorko/htmlcssexempel.git
+cd htmlcssexempel
+code .</code></pre>
+        </div>
+
+        <div class="task-section">
+            <h2>Alternativ 2: Börja från grunden</h2>
+            <p>Om du hellre börjar från tom mapp, skapa tre filer som heter <code>index.html</code>, <code>om.html</code> och <code>kontakt.html</code> samt en mapp som heter <code>css</code> med en fil som heter <code>style.css</code>. Använd samma head på alla sidor och länka in samma CSS.</p>
+            
+            <h3>Steg för steg:</h3>
+            <ol>
+                <li>Strukturen ska vara densamma på alla sidor.</li>
+                <li>Börja med <code>index.html</code> och gör den klar först.</li>
+                <li>Kopiera sedan filen och spara som <code>om.html</code> och <code>kontakt.html</code>.</li>
+                <li>Använd samma navigationslista och låt länkarna peka med relativa sökvägar.</li>
+            </ol>
+
+            <h3>Mall för index.html</h3>
+            <p>Här är en enkel mall som du kan klistra in i <code>index.html</code>. Byt texten i h1 och i p på varje sida så att varje sida har unikt innehåll men samma struktur.</p>
+            
+            <details>
+                <summary>Visa HTML-koden</summary>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Mitt Företag – Start&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="site-header"&gt;
+    &lt;img src="images/logo.png" alt="Mitt Företag"&gt;
+    &lt;nav aria-label="Huvudmeny"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html" aria-current="page"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="om.html"&gt;Om oss&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;h1&gt;Välkommen&lt;/h1&gt;
+    &lt;p&gt;Detta är startsidan för vår lilla webbplats.&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="site-footer"&gt;
+    &lt;p&gt;&amp;copy; 2025 Mitt Företag&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </details>
+
+            <p>Kopiera filen och spara som <code>om.html</code> och <code>kontakt.html</code>. Ändra titel och rubrik, och flytta <code>aria-current="page"</code> till rätt länk i menyn.</p>
+        </div>
+
+        <div class="task-section">
+            <h2>CSS-mall</h2>
+            <p>Här är en grundläggande CSS som du kan använda i <code>css/style.css</code>.</p>
+            
+            <details>
+                <summary>Visa CSS-koden</summary>
+<pre><code>:root {
+  --font: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --text: #111;
+  --bg: #fff;
+  --accent: #0a7;
+  --space: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.site-header, .site-footer { padding: var(--space); }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  padding: .5rem .75rem;
+  display: inline-block;
+}
+
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+img { max-width: 100%; height: auto; }
+
+main {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: var(--space);
+}
+
+/* Responsiv meny */
+@media (min-width: 768px) {
+  nav ul { display: flex; gap: .5rem; }
+}</code></pre>
+            </details>
+        </div>
+
+        <div class="task-section">
+            <h2>Avslutning</h2>
+            <ul>
+                <li>Testa sedan i webbläsaren att alla sidor fungerar, att länkarna leder rätt och att sidan anpassar sig när du ändrar fönstrets bredd.</li>
+                <li>Testa att publicera på din egen GitHub Pages när du är klar.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mitt Företag. Alla rättigheter reserverade.</p>
+    </footer>
+</body>
+</html>
+

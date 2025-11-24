@@ -7,19 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Extra stilar för kodeditor-look i lektionsanteckningarna */
-            .box {
-            background-color: lightcoral;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        @media (min-width: 700px) {
-            .box {
-                background-color: mediumseagreen;
-            }
-        }
         pre {
             background-color: #2d2d2d;
             color: #f8f8f2;
@@ -44,6 +31,39 @@
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
+        }
+        
+        /* Exempel-box för media queries */
+        .box {
+            background-color: lightcoral;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        @media (min-width: 700px) {
+            .box {
+                background-color: mediumseagreen;
+            }
+        }
+
+        /* Dragspels-menyer (Details/Summary) stylning */
+        details {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+        details[open] summary {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -90,46 +110,76 @@
                 <li><strong>Länka sidorna:</strong> Använd relativa sökvägar i menyn.</li>
             </ol>
 
-            <h3>Exempel på meny (HTML):</h3>
-            <pre><code>&lt;nav&gt;
+            <details>
+                <summary>Klicka för att se meny-koden (HTML)</summary>
+                <pre><code>&lt;nav&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href="index.html" class="active"&gt;Start&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="om.html"&gt;Om oss&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
+                <p><strong>Aktiv länk:</strong> Observera klassen <code>class="active"</code> som flyttas beroende på vilken sida man är på.</p>
+            </details>
+        </div>
 
-            <p><strong>Aktiv länk:</strong> Observera klassen <code>class="active"</code> (eller attributet <code>aria-current="page"</code> för bättre tillgänglighet) som flyttas beroende på vilken sida man är på.</p>
+        <div class="lesson-section">
+            <h2>3. CSS från verkligheten</h2>
+            <p>Här är exempel på hur vi faktiskt har kodat designen du ser just nu i <code>style.css</code>.</p>
+            
+            <h3>Exempel: Galleri-layout (Grid)</h3>
+            <p>På startsidan använder vi CSS Grid för att bilderna ska hamna snyggt bredvid varandra.</p>
+            <details open>
+                <summary>Visa Grid-koden</summary>
+                <pre><code>.gallery {
+    display: grid;
+    /* Skapa kolumner automatiskt, minst 300px breda */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}</code></pre>
+                <p>Detta gör att galleriet automatiskt byter från 3 kolumner till 2 eller 1 om skärmen blir smalare.</p>
+            </details>
         </div>
 
         <div class="lesson-section">
             <h2>4. Exempel: Vad betyder <code>@media queries</code>?</h2>
             <p><code>@media</code> låter oss ändra stilen beroende på skärmens bredd. Det gör att sidan kan anpassas till mobil, surfplatta och dator.</p>
         
-            <h3>Exempel:</h3>
-            <pre><code>/* Grundstil: liten skärm */
-        .box {
-            background-color: lightcoral;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        /* När fönstret är minst 700px brett */
-        @media (min-width: 700px) {
-            .box {
-                background-color: mediumseagreen;
-            }
-        }</code></pre>
-        
-            <p>Testa att ändra fönstrets storlek – rutan nedan byter färg tack vare <code>@media</code>:</p>
-            <div class="box">Jag ändrar färg när fönstret blir bredare!</div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <pre><code>/* Grundstil: liten skärm (Mobil) */
+.box {
+    background-color: lightcoral; /* Röd */
+}
+
+/* När fönstret är minst 700px brett (Desktop) */
+@media (min-width: 700px) {
+    .box {
+        background-color: mediumseagreen; /* Grön */
+    }
+}</code></pre>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <p>Testa att ändra fönstrets storlek – rutan nedan byter färg tack vare <code>@media</code>:</p>
+                    <div class="box">Jag ändrar färg när fönstret blir bredare!</div>
+                </div>
+            </div>
         </div>
+
+        <div class="lesson-section">
+            <h2>5. Testa själv! (Checklista)</h2>
+            <p>För att verkligen förstå hur allt hänger ihop, prova att göra följande ändringar i koden och se vad som händer:</p>
+            <ul style="background: #eef; padding: 20px; border-radius: 5px; list-style-type: none;">
+                <li style="margin-bottom: 10px;">🔨 <strong>Ändra menyns färg:</strong> Gå in i <code>style.css</code> och ändra <code>background-color</code> för <code>nav</code>. Uppdatera alla sidor – ser du att menyn ändras överallt?</li>
+                <li style="margin-bottom: 10px;">🔨 <strong>Flytta den aktiva länken:</strong> Öppna <code>om.html</code> och flytta klassen <code>active</code> till "Kontakt"-länken istället. Vad händer i menyn?</li>
+                <li style="margin-bottom: 10px;">🔨 <strong>Inspektera mera:</strong> Högerklicka på logotypen och välj <em>Inspektera</em> (Inspect). Prova att ändra bredden direkt i webbläsarens verktyg.</li>
+            </ul>
+        </div>
+
     </main>
 
     <footer>
-        <p>&copy; 2023 Mitt Företag. Alla rättigheter reserverade.</p>
+        <p>&copy; 2025 Mitt Företag. Alla rättigheter reserverade.</p>
     </footer>
 </body>
 </html>
-

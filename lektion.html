@@ -65,6 +65,34 @@
         details[open] summary {
             margin-bottom: 10px;
         }
+        
+        /* Smooth scrolling för ankarlänkar */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Styling för innehållsförteckning */
+        .toc {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #333;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            color: #5be87a;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -85,8 +113,20 @@
         <h1>Lektionsmaterial: Bygga en sammanhängande webbplats</h1>
         <p class="intro">Här går vi igenom hur man bygger en liten webbplats med tre sidor som delar header, footer och CSS. Fokus ligger på struktur, navigation, <code>aria-current</code> och responsiv layout.</p>
 
+        <div class="toc">
+            <h2>Innehållsförteckning</h2>
+            <ul>
+                <li><a href="#sammanhangande">1. Vad gör en webbplats sammanhängande?</a></li>
+                <li><a href="#koppla-ihop">2. Koppla ihop sidor (Live-kodning)</a></li>
+                <li><a href="#css-verkligheten">3. CSS från verkligheten</a></li>
+                <li><a href="#media-queries">4. Exempel: Vad betyder @media queries?</a></li>
+                <li><a href="#testa-sjalv">5. Testa själv! (Checklista)</a></li>
+                <li><a href="#formular">6. Formulärhantering: Statisk vs Dynamisk</a></li>
+            </ul>
+        </div>
+
         <div class="lesson-section">
-            <h2>1. Vad gör en webbplats sammanhängande?</h2>
+            <h2 id="sammanhangande">1. Vad gör en webbplats sammanhängande?</h2>
             <ul>
                 <li><strong>Gemensam struktur:</strong> Samma Header, Footer och Navigation på alla sidor skapar igenkänning.</li>
                 <li><strong>Konsekvent design (CSS):</strong> En enda stilmall (<code>style.css</code>) styr utseendet för hela sajten.</li>
@@ -102,7 +142,7 @@
         </div>
 
         <div class="lesson-section">
-            <h2>2. Koppla ihop sidor (Live-kodning)</h2>
+            <h2 id="koppla-ihop">2. Koppla ihop sidor (Live-kodning)</h2>
             <p>Så här arbetar vi praktiskt för att skapa flersidiga webbplatser:</p>
             <ol>
                 <li><strong>Skapa en <code>index.html</code>:</strong> Bygg grundstrukturen först så att den är perfekt.</li>
@@ -124,7 +164,7 @@
         </div>
 
         <div class="lesson-section">
-            <h2>3. CSS från verkligheten</h2>
+            <h2 id="css-verkligheten">3. CSS från verkligheten</h2>
             <p>Här är exempel på hur vi faktiskt har kodat designen du ser just nu i <code>style.css</code>.</p>
             
             <h3>Exempel: Galleri-layout (Grid)</h3>
@@ -142,7 +182,7 @@
         </div>
 
         <div class="lesson-section">
-            <h2>4. Exempel: Vad betyder <code>@media queries</code>?</h2>
+            <h2 id="media-queries">4. Exempel: Vad betyder <code>@media queries</code>?</h2>
             <p><code>@media</code> låter oss ändra stilen beroende på skärmens bredd. Det gör att sidan kan anpassas till mobil, surfplatta och dator.</p>
         
             <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
@@ -167,7 +207,7 @@
         </div>
 
         <div class="lesson-section">
-            <h2>5. Testa själv! (Checklista)</h2>
+            <h2 id="testa-sjalv">5. Testa själv! (Checklista)</h2>
             <p>För att verkligen förstå hur allt hänger ihop, prova att göra följande ändringar i koden och se vad som händer:</p>
             <ul style="background: #eef; padding: 20px; border-radius: 5px; list-style-type: none;">
                 <li style="margin-bottom: 10px;">🔨 <strong>Ändra menyns färg:</strong> Gå in i <code>style.css</code> och ändra <code>background-color</code> för <code>nav</code>. Uppdatera alla sidor – ser du att menyn ändras överallt?</li>
@@ -177,7 +217,7 @@
         </div>
 
         <div class="lesson-section">
-            <h2>6. Formulärhantering: Statisk vs Dynamisk</h2>
+            <h2 id="formular">6. Formulärhantering: Statisk vs Dynamisk</h2>
             <p>På kontaktsidan har vi ett formulär. Men hur får man det att faktiskt skicka mail?</p>
             
             <h3>Statiska vs Dynamiska webbplatser</h3>
